@@ -48,6 +48,14 @@ export const useProductsStore = defineStore('products', {
                 price: 30,
                 category: "Category 1"
             },
+            {
+                id: "6",
+                name: "Product 6",
+                quantity: 10,
+                description: "This is product 6",
+                price: 30,
+                category: "Category 3"
+            },
         ]
     }),
 
@@ -55,10 +63,7 @@ export const useProductsStore = defineStore('products', {
         filterByCategory: (state: ProductStateStore) => {
             return (category: string) => state.products.filter((product) => product.category = category)
         },
-
-        sortByQuantity: (state: ProductStateStore) => {
-            return state.products.sort((a, b) => a.quantity - b.quantity)
-        }
+        sortByQuantity: (state: ProductStateStore) => state.products.sort((a, b) => a.quantity - b.quantity)
     },
 
     actions: {

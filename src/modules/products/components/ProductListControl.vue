@@ -1,6 +1,6 @@
 <template>
-    <div class="products-list">
-        <slot></slot>
+    <div class="products-list-controll">
+        filter by [ options here ]
     </div>
 </template>
 
