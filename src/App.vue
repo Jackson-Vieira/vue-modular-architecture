@@ -13,4 +13,5 @@ export default {
 <template>
   <AppHeader />
   <div class="text-green-696 text-xl">Hello, from TailwindCSS!</div>
+  <RouterView />
 </template>
