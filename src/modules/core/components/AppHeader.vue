@@ -15,10 +15,10 @@ export default {
             <router-link to="/">Home</router-link>
           </li>
           <li class="hover:text-blue-500 cursor-pointer px-4">
-            <router-link to="/blog">Products</router-link>
+            <router-link to="/products">Products</router-link>
           </li>
           <li class="hover:text-blue-500 cursor-pointer px-4">
-            <router-link to="about">Cart</router-link>
+            <router-link to="/cart">Cart</router-link>
           </li>
         </ul>
       </nav>
