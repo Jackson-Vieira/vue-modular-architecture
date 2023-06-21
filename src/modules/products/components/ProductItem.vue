@@ -1,24 +1,23 @@
 <template>
-    <div>
-        {{ props.product }}
+    <div @click="emit('on-add-to-cart', product)">
+        {{ product }}
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, type PropType } from 'vue'
+<script lang="ts" setup>
+import { toRefs } from 'vue'
 import type { IProduct } from '../types';
 
-export default defineComponent({
-    props: {
-        product: {
-            type: Object as PropType<IProduct>,
-            required: true
-        }
-    },
-    setup(props) {
-        return { props }
-    },
-})
+const props = defineProps<{
+    product: IProduct
+}>()
+
+const { product } = toRefs(props)
+
+const emit = defineEmits<{
+    (e: "on-add-to-cart", product: IProduct): void
+}>()
+
 </script>
 
 <style scoped>

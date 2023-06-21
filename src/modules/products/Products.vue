@@ -6,6 +6,8 @@ import ProductListControl from './components/ProductListControl.vue';
 
 import { defineComponent } from 'vue';
 import { useProductsStore } from './store';
+import { useCartStore } from '../cart/store';
+import type { IProduct } from './types';
 
 export default defineComponent({
 
@@ -17,7 +19,14 @@ export default defineComponent({
 
     setup(){
         const productsStore = useProductsStore(); 
-        return { productsStore }
+		const cartStore = useCartStore();
+
+		function addToCart(product: IProduct){
+			productsStore.updateQuantityById(product.id, -1)
+			cartStore.addProduct(product)
+		}
+		
+        return { productsStore, addToCart }
     }
 })
 
@@ -26,6 +35,6 @@ export default defineComponent({
 <template>
 		<ProductListControl />
 		<ProductsList>
-			<ProductItem v-for="product in productsStore.products" :key="product.id" :product="product"/>
+			<ProductItem v-for="product in productsStore.products" :key="product.id" :product="product" @on-add-to-cart="addToCart"/>
 		</ProductsList>
 </template>
